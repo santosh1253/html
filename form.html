@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Example</title>
+</head>
+<body>
+     <h1 id="h1"></h1>
+     <button onclick="hello()">Hello</button>
+     <button onclick="welcome()">Welcome</button>
+     <button id="three">How are you</button>
+    <script>
+         let hello=function()
+         {
+            let a=document.querySelector("#h1");
+            a.innerText="Hello";
+         } 
+         let welcome=function()
+         {
+            let a=document.querySelector("#h1");
+            a.innerText="Welcome";
+            a.style.backgroundColor="Blue";
+         } 
+         let btn=document.querySelector("#three");
+         btn.addEventListener('click',function()
+         {
+            let a=document.querySelector("#h1");
+            a.innerText="How are you..?";
+            a.style.backgroundColor="red";
+            a.style.boxShadow="0 0 2px black"
+         });
+         
+    </script>
+</body>
+</html>

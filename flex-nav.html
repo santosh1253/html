@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <style>
+            body{
+                margin:0;
+            }
+            .parent
+            {
+              display: flex;
+              background-color: lightgray;
+              height: 8vh;
+              justify-content: flex-start;
+
+            }
+            .child
+            {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 10%;
+                background-color: wheat;
+                margin-right: 2px;
+            }
+            a{
+                text-decoration: none;
+            }
+            .child:hover{
+               background-color: tomato; 
+            }
+            h1{
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align: center; background-color: brown;">Header1</h1>
+        <div class="parent">
+            <div class="child"><a href="#">Home</a></div>
+            <div class="child"><a href="#">Login</a></div>
+            <div class="child"><a href="#">Menu</a></div>
+            <div class="child"><a href="#">Address</a></div>
+            <div class="child"><a href="#">Contact</a></div>
+        </div>
+    </body>
+</html>

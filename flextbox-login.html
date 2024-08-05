@@ -1,0 +1,104 @@
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .parent {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(blue, violet);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .child {
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 20px;
+            width: 350px;
+            background-color: whitesmoke;
+            box-shadow: 0 0 5px rgb(9, 9, 9);
+        }
+
+        .field * {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+
+        .field input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.492);
+        }
+
+        button {
+            width: 100%;
+            background-color: blueviolet;
+            border: none;
+            padding: 10px;
+            color: lightgoldenrodyellow;
+            border-radius: 5px;
+            opacity: 0.6;
+        }
+
+        button:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child">
+            <div class="field">
+                <label>Enter Username:</label>
+                <input type="text" name="uname" id="uname" placeholder="enter name">
+                <label id="label">Enter the uname with alphabets only</label>
+            </div>
+            <div class="field">
+                <label>Enter password:</label>
+                <input type="password" name="pwd" id="pwd" placeholder="enter password">
+            </div>
+            <div>
+                <input type="checkbox" id="check">
+                <label>Show password</label>
+            </div>
+            <button>Submit</button>
+        </div>
+    </div>
+    <script>
+        let pwd = document.getElementById("pwd");
+        let check = document.getElementById("check");
+        check.addEventListener('change', function () {
+            var attr = pwd.getAttribute("type");
+            if (attr === "text")
+                pwd.setAttribute("type", "password");
+            else
+                pwd.setAttribute('type', "text");
+        });
+        let uname = document.getElementById("uname");
+        uname.addEventListener('change', function () {
+            var ip = uname.value;
+            let label = document.getElementById("label");
+            console.log(ip);
+            var regexp = /[a-zA-Z0-9]/;
+            console.log(regexp.test(ip));
+            if (!regexp.test(ip)) {
+                label.style.color = "red";
+                uname.style.borderLeft = "10px solid red";
+            }
+            else {
+                label.style.color = "lightgreen";
+                uname.style.borderLeft = "10px solid green";
+            }
+
+        })
+    </script>
+</body>
+
+</html>

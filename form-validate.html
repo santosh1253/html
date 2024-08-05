@@ -1,0 +1,167 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        div {
+            width: 100%;
+            height: 100vh;
+            border: 2px solid green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(blue, whitesmoke);
+        }
+
+        form {
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            border-radius: 20px;
+            box-shadow: 0 0 2px black;
+            width: 40%;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color: whitesmoke
+        }
+
+        form * {
+            width: 50%;
+        }
+
+        .text-success {
+
+            border: 1px solid limegreen;
+            box-shadow: 0 0 5px limegreen;
+        }
+
+        .text-failure {
+            font-size: small;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border: 1px solid rgb(245, 4, 28);
+            box-shadow: 0 0 5px rgb(237, 12, 12);
+        }
+        input[type="submit"]
+        {
+            background-color: blueviolet;
+            opacity: 0.5;
+        }
+        input[type="submit"]:hover
+        {
+           
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form class="register-form">
+            <label for="uname">Enter name</label>
+            <input type="text" id="uname">
+            <label id="name-feedback"></label>
+
+            <label for="email">Enter Email</label>
+            <input type="email" id="email">
+            <label id="email-feedback"></label>
+
+            <label for="pwd">Enter Password</label>
+            <input type="password" id="pwd">
+            <label id="pwd-feedback"></label>
+            <input type="submit">
+        </form>
+    </div>
+    <script>
+        let form = document.querySelector(".register-form");
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+             if(  validateName() && validateEmail())
+             {
+                alert("Form is submitted successfully");
+             }
+        });
+       let validateName=()=>
+       {
+        let uname = document.getElementById("uname");
+            let reg = /[A-Za-z0-9]{5,10}/;
+            let feedback = document.getElementById("name-feedback");
+            if (reg.test(uname.value)) {
+                feedback.innerText = "Good job";
+                uname.classList.add('text-success');
+                uname.classList.remove('text-failure');
+                return true;
+            }
+            else {
+                feedback.innerText = "try again";
+                uname.classList.remove('text-success');
+                uname.classList.add('text-failure');
+            }
+            return false;
+       }
+       let uname = document.getElementById("uname");
+       uname.addEventListener('keyup',function()
+       {
+            let reg = /[A-Za-z0-9]{5,10}/;
+            let feedback = document.getElementById("name-feedback");
+            if (reg.test(uname.value)) {
+                feedback.innerText = "Good job";
+                feedback.style.textAlign="center";
+                uname.classList.add('text-success');
+                uname.classList.remove('text-failure');
+            }
+            else {
+                feedback.innerText = "try again";
+                uname.classList.remove('text-success');
+                uname.classList.add('text-failure');
+            }
+       });
+       let validateEmail=()=>
+       {
+            let email = document.getElementById("email");
+            const reg =  /[A-Za-z0-9\._%+\-]+@[A-Za-z0-9\.\-]+\.[A-Za-z]{2,}/;
+            let feedback = document.getElementById("email-feedback");
+            if (reg.test(email.value)) {
+
+                feedback.innerText = "Well Formated";
+                email.classList.add('text-success');
+                email.classList.remove('text-failure');
+                return true;
+            }
+            else {
+                feedback.innerText = "try again";
+                email.classList.remove('text-success');
+                email.classList.add('text-failure');
+            }
+            return false;
+       }
+    let email=document.getElementById("email");
+    email.addEventListener('keyup',function()
+       {
+            let email = document.getElementById("email");
+            const reg =  /[A-Za-z0-9\._%+\-]+@[A-Za-z0-9\.\-]+\.[A-Za-z]{2,}/;
+            let feedback = document.getElementById("email-feedback");
+            if (reg.test(email.value)) {
+
+                feedback.innerText = "Well Formated";
+                email.classList.add('text-success');
+                email.classList.remove('text-failure');
+                return true;
+            }
+            else {
+                feedback.innerText = "try again";
+                email.classList.remove('text-success');
+                email.classList.add('text-failure');
+            }
+            return false;
+       });
+    </script>
+</body>
+
+</html>
