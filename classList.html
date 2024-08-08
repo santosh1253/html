@@ -1,0 +1,37 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      div{
+        width:500px;
+        height:600px;
+        border:2px solid black;
+      }
+    </style>
+</head>
+<body>
+    <h1 id="h1">This is a Header</h1>
+    <div id="div">This is a div</div>
+    Enter name:<input type="text" name="uname">
+    <script>
+        var x = document.getElementsByName("uname")[0];
+        x.addEventListener('keypress', function () {
+             var tag = document.createElement("p");
+             var child=document.createTextNode("New Child");
+             tag.appendChild(child);
+             x.insertAdjacentElement('beforeend',tag);
+          //  document.getElementById("div").appendChild(tag);
+        });
+        x.addEventListener('input', () => {
+            var tag = document.getElementById("h1");
+            tag.remove();
+
+        })
+    </script>
+
+</body>
+
+</html>

@@ -41,6 +41,10 @@
             border: 1px solid limegreen;
             box-shadow: 0 0 5px limegreen;
         }
+        .text-success01 {
+        border: 1px solid rgb(86, 50, 205);
+        box-shadow: 0 0 5px rgb(55, 50, 205);
+        }
 
         .text-failure {
             font-size: small;
@@ -94,8 +98,8 @@
             let feedback = document.getElementById("name-feedback");
             if (reg.test(uname.value)) {
                 feedback.innerText = "Good job";
-                uname.classList.add('text-success');
-                uname.classList.remove('text-failure');
+                uname.classList.toggle('text-success',true);
+                uname.classList.toggle('text-failure',false);
                 return true;
             }
             else {
@@ -106,18 +110,18 @@
             return false;
        }
        let uname = document.getElementById("uname");
-       uname.addEventListener('keyup',function()
+       uname.addEventListener('input',function()
        {
             let reg = /[A-Za-z0-9]{5,10}/;
             let feedback = document.getElementById("name-feedback");
             if (reg.test(uname.value)) {
                 feedback.innerText = "Good job";
-                feedback.style.textAlign="center";
                 uname.classList.add('text-success');
                 uname.classList.remove('text-failure');
             }
             else {
                 feedback.innerText = "try again";
+                feedback.classList.toggle('text-failure',true);
                 uname.classList.remove('text-success');
                 uname.classList.add('text-failure');
             }

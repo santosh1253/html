@@ -5,32 +5,36 @@
         <h1 class="head" id="h1"> Header1</h1>
         <h2 class="head">Header2</h2>
         <script>
-            var student={
-               name:"Guru",
-               age:24,
-               place:"Vijayawada",
-               Address:{
-                street:"Vinayaka temple street",
-                hno:'1-26/A',
-                village:'Devulapalle'
-               }
-            }
-            var arr=['Guru',24,'55',"Hello",'Rowdy'];
-            for(let index in arr)
-            {
-                console.log(index);
-            }
-            var x='';
-            arr.forEach(
-                function(items)
-                {
-                 x+= `${items} `;
-                }
-            )
-            console.log(x);
-            var y='';
-            arr.forEach(items=> y+=`${items} `)
-            console.log(y);
+            var a="Guru Datta Konkimalla";
+            var res=a.match(/u/g);
+            if(a=="Guru")
+             document.getElementById("h1").innerHTML=res;
+            // var student={
+            //    name:"Guru",
+            //    age:24,
+            //    place:"Vijayawada",
+            //    Address:{
+            //     street:"Vinayaka temple street",
+            //     hno:'1-26/A',
+            //     village:'Devulapalle'
+            //    }
+            // }
+            // var arr=['Guru',24,'55',"Hello",'Rowdy'];
+            // for(let index in arr)
+            // {
+            //     console.log(index);
+            // }
+            // var x='';
+            // arr.forEach(
+            //     function(items)
+            //     {
+            //      x+= `${items} `;
+            //     }
+            // )
+            // console.log(x);
+            // var y='';
+            // arr.forEach(items=> y+=`${items} `)
+            // console.log(y);
         </script>
     </body>
 </html>
